@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scrapers": [
     {
-      "id": "sb-private-tv-unique-88",
+      "id": "sb-private-tv-unique-v9",
       "name": "ShowBox Private TV",
       "description": "ShowBox streaming with multiple quality options and versions",
       "version": "1.0.0",
