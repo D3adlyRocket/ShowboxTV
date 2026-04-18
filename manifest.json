@@ -13,7 +13,14 @@
       "enabled": true,
       "formats": ["mp4", "mkv", "m3u8"],
       "logo": "https://i.postimg.cc/8c5XGzsx/showbox.png",
-      "contentLanguage": ["en"]
+      "contentLanguage": ["en"],
+      "settings": [
+        {
+          "name": "sb_cookie_box",
+          "type": "text",
+          "label": "Enter Cookie"
+        }
+      ]
     }
   ]
 }
