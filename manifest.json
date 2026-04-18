@@ -1,12 +1,12 @@
 {
   "name": "D3adlyRocket",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "scrapers": [
     {
-      "id": "sb-private-v10-final",
-      "name": "ShowBox Private TV",
-      "description": "Enter cookie in settings gear",
-      "version": "1.1.0",
+      "id": "sb-private-v20-final",
+      "name": "ShowBox Private",
+      "description": "Exclusive Scraper - Enter Token in Settings",
+      "version": "2.0.0",
       "author": "Nuvio Team",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/showbox.js",
@@ -16,11 +16,9 @@
       "contentLanguage": ["en"],
       "settings": [
         {
-          "id": "sb_cookie_box",
-          "name": "sb_cookie_box",
+          "name": "token_box",
           "type": "text",
-          "label": "ShowBox Cookie",
-          "default": ""
+          "label": "Enter Cookie Token"
         }
       ]
     }
