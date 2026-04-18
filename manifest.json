@@ -1,0 +1,19 @@
+[
+  {
+    "id": "sb-private-tv-unique-88",
+    "name": "ShowBox Private TV",
+    "description": "Exclusive Private Scraper",
+    "version": "1.0.0",
+    "author": "Private",
+    "filename": "showbox_tv.js",
+    "supportedTypes": ["movie", "tv"],
+    "enabled": true,
+    "settings": [
+      {
+        "name": "sb_cookie_box",
+        "type": "text",
+        "label": "Enter Cookie"
+      }
+    ]
+  }
+]
