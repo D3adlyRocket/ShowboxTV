@@ -5,7 +5,7 @@
     "description": "Exclusive Private Scraper",
     "version": "1.0.0",
     "author": "Private",
-    "filename": "showbox_tv.js",
+    "filename": "providers/showbox.js",
     "supportedTypes": ["movie", "tv"],
     "enabled": true,
     "settings": [
