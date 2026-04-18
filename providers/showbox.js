@@ -2,11 +2,13 @@ var TMDB_KEY = '439c478a771f35c05022f9feabcca01c';
 var SB_BASE = 'https://febapi.nuvioapp.space/api/media';
 
 function getStreams(tmdbId, type, s, e) {
-    // Looks for the 'sb_cookie_box' setting from the manifest
+    // This is the correct way Nuvio retrieves local settings
     var settings = (typeof global !== 'undefined' && global.SCRAPER_SETTINGS) ? global.SCRAPER_SETTINGS : {};
     var token = settings.sb_cookie_box;
 
-    if (!token) return Promise.resolve([]);
+    if (!token) {
+        return Promise.resolve([]);
+    }
 
     var tmdbUrl = 'https://api.themoviedb.org/3/' + (type === 'tv' ? 'tv/' : 'movie/') + tmdbId + '?api_key=' + TMDB_KEY;
 
