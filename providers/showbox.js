@@ -2,11 +2,11 @@ var TMDB_KEY = '439c478a771f35c05022f9feabcca01c';
 var SB_BASE = 'https://febapi.nuvioapp.space/api/media';
 
 function getStreams(tmdbId, type, s, e) {
-    // This is the correct way Nuvio retrieves local settings
+    // This looks for the settings specifically assigned to this scraper ID
     var settings = (typeof global !== 'undefined' && global.SCRAPER_SETTINGS) ? global.SCRAPER_SETTINGS : {};
     var token = settings.sb_cookie_box;
 
-    if (!token) {
+    if (!token || token === "") {
         return Promise.resolve([]);
     }
 
