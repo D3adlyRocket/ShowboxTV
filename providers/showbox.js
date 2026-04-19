@@ -2,7 +2,7 @@ var TMDB_KEY = '439c478a771f35c05022f9feabcca01c';
 var SB_BASE = 'https://febapi.nuvioapp.space/api/media';
 
 // IMPORTANT: Set this to your Phone's Local IP address
-var LOCAL_COOKIE_URL = "http://192.168.1.3:8080/cookie.txt";
+var LOCAL_COOKIE_URL = "http://192.168.31.206:8888/cookie.txt";
 
 async function getStreams(tmdbId, type, s, e) {
     try {
