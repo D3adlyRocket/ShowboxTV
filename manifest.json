@@ -3,13 +3,33 @@
   "version": "2.0.0",
   "scrapers": [
     {
-      "id": "sb-private-v20-final",
-      "name": "ShowBox Private",
+      "id": "sb-private-v20-final-1",
+      "name": "ShowBox Cookie-1",
       "description": "Exclusive Scraper - Enter Token in Settings",
       "version": "2.0.0",
       "author": "Nuvio Team",
       "supportedTypes": ["movie", "tv"],
       "filename": "providers/showbox.js",
+      "enabled": true,
+      "formats": ["mp4", "mkv", "m3u8"],
+      "logo": "https://i.postimg.cc/8c5XGzsx/showbox.png",
+      "contentLanguage": ["en"],
+      "settings": [
+        {
+          "name": "token_box",
+          "type": "text",
+          "label": "Enter Cookie Token"
+        }
+      ]
+    },
+    {
+      "id": "sb-private-v20-final-2",
+      "name": "ShowBox Cookie-2",
+      "description": "Exclusive Scraper - Enter Token in Settings",
+      "version": "2.0.0",
+      "author": "Nuvio Team",
+      "supportedTypes": ["movie", "tv"],
+      "filename": "providers/showbox2.js",
       "enabled": true,
       "formats": ["mp4", "mkv", "m3u8"],
       "logo": "https://i.postimg.cc/8c5XGzsx/showbox.png",
