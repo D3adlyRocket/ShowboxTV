@@ -28,7 +28,7 @@ function getAuthToken() {
     .catch(e => {
       console.log(`[${PROVIDER_NAME}] Local server unavailable: ${e.message}`);
       
-      // Fallback 1: global SCRAPER_SETTINGS
+      // Fallback 1: globalSCRAPER_SETTINGS
       try {
         if (typeof globalThis !== "undefined" && globalThis.SCRAPER_SETTINGS?.authToken) {
           console.log(`[${PROVIDER_NAME}] Using token from globalThis.SCRAPER_SETTINGS`);
@@ -128,13 +128,13 @@ function getStreams(tmdbId, mediaType, season, episode) {
 
           // Map language tags
           rawStreams.forEach(s => {
-            const titleText = (s.title || s.description || s.name || "").toLowerCase();
+            const matchText = `${s.url || ''} ${s.title || ''} ${s.description || ''} ${s.name || ''}`.toLowerCase();
             
             let detectedLang = "English 🇺🇲";
             
-            if (/hindi|hin|dual/.test(titleText)) {
+            if (/hindi|hin|dual/.test(matchText)) {
               detectedLang = "Hindi 🇮🇳";
-            } else if (/multi|🌐/.test(titleText)) {
+            } else if (/multi|🌐/.test(matchText)) {
               detectedLang = "Multi 🌐";
             }
 
@@ -144,13 +144,14 @@ function getStreams(tmdbId, mediaType, season, episode) {
           const result = [];
           const grouped = {};
 
-          // Group elements cleanly by quality tags
+          // Group elements cleanly by quality tags extracted from URL and metadata
           allStreams.forEach(item => {
-            const title = (item.title || item.description || item.name || "").toLowerCase();
-            const res = /2160|4k/.test(title) ? "2160p" : 
-                        /1080/.test(title) ? "1080p" : 
-                        /720/.test(title)  ? "720p"  : 
-                        /480/.test(title)  ? "480p"  : "1080p";
+            const matchText = `${item.url || ''} ${item.title || ''} ${item.description || ''} ${item.name || ''}`.toLowerCase();
+            
+            const res = /2160|4k/.test(matchText) ? "2160p" : 
+                        /1080/.test(matchText) ? "1080p" : 
+                        /720/.test(matchText)  ? "720p"  : 
+                        /480/.test(matchText)  ? "480p"  : "1080p";
             
             const key = `${res}-${item.lang}`;
             if (!grouped[key]) grouped[key] = [];
@@ -162,10 +163,10 @@ function getStreams(tmdbId, mediaType, season, episode) {
             const [res, lang] = key.split("-");
             
             items.forEach(item => {
-              const rawText = (item.title || item.description || item.name || "").toLowerCase();
+              const rawText = `${item.url || ''} ${item.title || ''} ${item.description || ''} ${item.name || ''}`.toLowerCase();
 
               let sizeStr = "Unknown Size";
-              const sizeMatch = (item.title || item.description || item.name || "").match(/(\d+(?:\.\d+)?\s*(?:GB|MB|gb|mb))/i);
+              const sizeMatch = rawText.match(/(\d+(?:\.\d+)?\s*(?:GB|MB|gb|mb))/i);
               if (sizeMatch) {
                 sizeStr = sizeMatch[1].toUpperCase();
               } else if (item.size) {
